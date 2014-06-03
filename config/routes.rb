@@ -1,4 +1,7 @@
 Creatishop::Application.routes.draw do
+  get "checkout/product_purchase"
+  get "checkout/payment"
+  get "shopping/product_display"
   get "landing/shop"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
