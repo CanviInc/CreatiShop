@@ -1,13 +1,15 @@
 Creatishop::Application.routes.draw do
   get "checkout/product_purchase"
   get "checkout/payment"
+  get "checkout/cart"
   get "shopping/product_display"
-  get "landing/shop"
+  get "shopping/shop"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'landing#index'
+  root 'landing#land'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
