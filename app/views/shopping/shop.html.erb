@@ -79,8 +79,8 @@
         <div class="wrapper-demo">
           <div id="dd" class="wrapper-dropdown-4">GET
             <ul class="dropdown">
-              <li><a href="#" id="purchaseNow">Now</a></li>
-              <li><a href="#">Later</a></li>
+              <li><a href="#" id="purchaseNow" >Now</a></li>
+              <li><a href="#" class="md-trigger " data-modal="modal-j2" >Later</a></li>
             </ul>
           </div>
         ​</div>
@@ -89,7 +89,22 @@
   </div>
 </div>
 </div>
-
+<div class="md-modal md-effect-jt md-effect-jt2" id="modal-j2">
+  <div class="md-content modal-j-bg">
+      <div class="div-close"><span class="md-close"><img src="/assets/close.png" /></span></div>
+    
+    <div class="fill-form-o-div">
+      <div class="fill-form">
+          <p><input type="text" placeholder="Name" /></p>
+        <p><input type="text" placeholder="Email" /></p>
+        <p><input type="text" placeholder="Street" /></p>
+        <p><select><option value="">City</option></select></p>
+        <p><select><option value="">State</option></select></p>
+      </div>
+      <div class="clearx"><a href="/checkout/cart" ><button class="btn-fill-submit">Checkout</button></a></div>
+    </div>
+  </div>
+</div>
 
 <div class="md-overlay"></div><!-- the overlay element -->
 
