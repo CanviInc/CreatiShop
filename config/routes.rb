@@ -4,7 +4,7 @@ Creatishop::Application.routes.draw do
   get "checkout/cart"
   get "shopping/product_display"
   get "shopping/shop"
-
+  resources :charges, :only => :create
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
