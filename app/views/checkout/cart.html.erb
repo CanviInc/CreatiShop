@@ -26,7 +26,45 @@
     <hr>
     <p class="total">$3,000</p>
   </section>
-  <section class="check"><a href="javascript:void(0);">Checkout</a></section>
+  <section class="check">
+  <a href="javascript:void(0);">
+  <form action="<%=root_path%>" method="get">
+          <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+   
+          <a 
+              href="#"
+              id ="pay" 
+              value="Pay with Card"
+              data-key= <%=PUBLISHABLE_KEY%>
+              data-amount="500"
+              data-currency="usd"
+              data-name="Example Company Inc"
+              data-description="Stripe payment for $5"
+          >Checkout</a>
+   
+          <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+          <script>
+          $(document).ready(function() {
+              $('#pay').on('click', function(event) {
+                  event.preventDefault();
+   
+                  var $button = $(this),
+                      $form = $button.parents('form');
+   
+                  var opts = $.extend({}, $button.data(), {
+                      token: function(result) {
+                          $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                      }
+                  });
+   
+                  StripeCheckout.open(opts);
+              });
+          });
+          </script>
+  </form>
+
+  </section>
   <section class="continue"><a href="/shopping/shop">Continue</a></section>
   <div class="cart"><a href="/checkout/cart">
   			<%=image_tag "cart.png", :alt => "cart" %>
