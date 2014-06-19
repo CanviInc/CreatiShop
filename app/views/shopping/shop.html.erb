@@ -1,1 +1,107 @@
-<h1> Shop <h2>
+<div class="left_image" align="center" >
+	<%=image_tag "Screen.png", :width => "120px" %>
+</div>
+<main>
+  <section style="background:#efefef; height:300px; padding:15px 0 0 0; margin-top:50px;" align="center">
+    <div class="product md-trigger " data-modal="modal-j1">
+    <img src="/assets/buck_2.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/tyme_8.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/robo1_1 copy.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/tyme_1 copy.jpg" >
+    </div>
+    
+    
+    <div class="product">
+    <img src="/assets/buck_1.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/darby1_1.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/darby2_2.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/natey_1.jpg" >
+    </div>
+    
+    <div class="product">
+    <img src="/assets/scoz1.jpg" >
+    </div>
+    
+  </section>
+  <div class="cart" style="margin-top:30px; ">
+    <a href="/checkout/cart">
+		  <%=image_tag "cart.png", :alt => "cart" %>
+	  </a>
+  </div>  
+</main>
+
+
+
+
+<!-- Modal product click -->
+<div class="md-modal md-effect-jt" id="modal-j1">
+  <div class="md-content modal-j-bg">
+    <div class="div-close">
+      <span class="md-close">
+        <img src="/assets/close.png" />
+      </span>
+    </div>  
+    <div class="prod-desc">
+      <div class="prod-title">Title</div>
+      <div class="prod-details">
+        <div class="iblk prod-artist-dimen">
+          <div class="prod-artist">Artist</div>
+          <div class="prod-dim">
+            <p>1).Height</p><p>2).Weight</p><p>3).Stem</p>
+          </div>
+        </div>
+        <div class="prod-img iblk"><img src="/assets/modal2.png" /></div>
+        <div class="prod-price-desc iblk">
+          <div class="prod-price">$Price</div>
+          <div class="prod-des">Description</div>
+        </div>
+      </div>
+      <div class="clearx getbtn">
+      <!-- <section>
+        <div class="wrapper-demo">
+          <div id="dd" class="wrapper-dropdown-4">GET
+            <ul class="dropdown">
+              <li><a href="#" id="purchaseNow">Now</a></li>
+              <li><a href="#">Later</a></li>
+            </ul>
+          </div>
+        ​</div>
+      </section> -->
+    </div>
+  </div>
+</div></div>
+
+
+    <div class="md-overlay"></div><!-- the overlay element -->
+
+    <!-- classie.js by @desandro: https://github.com/desandro/classie -->
+    <script src="/assets/classie.js"></script>
+    <script src="/assets/modalEffects.js"></script>
+
+    <!-- for the blur effect -->
+    <!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+    <script>
+      // this is important for IEs
+      var polyfilter_scriptpath = '/assets/';
+    </script>
+    <script src="/assets/cssParser.js"></script>
+    <script src="/assets/css-filters-polyfill.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
