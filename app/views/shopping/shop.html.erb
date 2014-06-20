@@ -55,7 +55,7 @@
 <div class="md-modal md-effect-jt" id="modal-j1">
   <div class="md-content modal-j-bg">
     <div class="div-close">
-      <span class="md-close">
+      <span class="md-close on-close">
         <img src="/assets/close.png" />
       </span>
     </div>  
@@ -79,8 +79,44 @@
         <div class="wrapper-demo">
           <div id="dd" class="wrapper-dropdown-4">GET
             <ul class="dropdown">
-              <li><a href="#" id="purchaseNow" >Now</a></li>
-              <li><a href="#" class="md-trigger " data-modal="modal-j2" >Later</a></li>
+              <li>
+                <form action="<%=root_path%>" method="get">
+                    <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+             
+                    <a 
+                        href="#"
+                        id ="pay" 
+                        value="Pay with Card"
+                        data-key= <%=PUBLISHABLE_KEY%>
+                        data-amount="500"
+                        data-currency="usd"
+                        data-name="Example Company Inc"
+                        data-description="Stripe payment for $5"
+                    >Now</a>
+             
+                    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+                    <script>
+                    $(document).ready(function() {
+                        $('#pay').on('click', function(event) {
+                            event.preventDefault();
+             
+                            var $button = $(this),
+                                $form = $button.parents('form');
+             
+                            var opts = $.extend({}, $button.data(), {
+                                token: function(result) {
+                                    $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                                }
+                            });
+             
+                            StripeCheckout.open(opts);
+                        });
+                    });
+                    </script>
+                </form>
+              </li>
+              <li><a href="#" class="md-trigger later" data-modal="modal-j2" >Later</a></li>
             </ul>
           </div>
         ​</div>
@@ -123,49 +159,52 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
       
-      function DropDown(el) {
-        this.dd = el;
-        this.opts = this.dd.find('ul.dropdown > li');
-        this.val = [];
-        this.index = [];
-        this.initEvents();
-      }
-      DropDown.prototype = {
-        initEvents : function() {
-          var obj = this;
+  function DropDown(el) {
+    this.dd = el;
+    this.opts = this.dd.find('ul.dropdown > li');
+    this.val = [];
+    this.index = [];
+    this.initEvents();
+  }
+  DropDown.prototype = {
+    initEvents : function() {
+      var obj = this;
 
-          obj.dd.on('click', function(event){
-            $(this).toggleClass('active');
-            event.stopPropagation();
-          });
-
-          obj.opts.children('label').on('click',function(event){
-            var opt = $(this).parent(),
-              chbox = opt.children('input'),
-              val = chbox.val(),
-              idx = opt.index();
-
-            ($.inArray(val, obj.val) !== -1) ? obj.val.splice( $.inArray(val, obj.val), 1 ) : obj.val.push( val );
-            ($.inArray(idx, obj.index) !== -1) ? obj.index.splice( $.inArray(idx, obj.index), 1 ) : obj.index.push( idx );
-          });
-        },
-        getValue : function() {
-          return this.val;
-        },
-        getIndex : function() {
-          return this.index;
-        }
-      }
-
-      $(function() {
-
-        var dd = new DropDown( $('#dd') );
-
-        $(document).click(function() {
-          // all dropdowns
-          $('.wrapper-dropdown-4').removeClass('active');
-        });
-
+      obj.dd.on('click', function(event){
+        $(this).toggleClass('active');
+        event.stopPropagation();
       });
 
-    </script>
+      obj.opts.children('label').on('click',function(event){
+        var opt = $(this).parent(),
+          chbox = opt.children('input'),
+          val = chbox.val(),
+          idx = opt.index();
+
+        ($.inArray(val, obj.val) !== -1) ? obj.val.splice( $.inArray(val, obj.val), 1 ) : obj.val.push( val );
+        ($.inArray(idx, obj.index) !== -1) ? obj.index.splice( $.inArray(idx, obj.index), 1 ) : obj.index.push( idx );
+      });
+    },
+    getValue : function() {
+      return this.val;
+    },
+    getIndex : function() {
+      return this.index;
+    }
+  }
+
+  $(function() {
+
+    var dd = new DropDown( $('#dd') );
+
+    $(document).click(function() {
+      // all dropdowns
+      $('.wrapper-dropdown-4').removeClass('active');
+      $('.later').click(function(){
+        $('.on-close').trigger('click');
+      });
+    });
+
+  });
+
+</script>
