@@ -4,6 +4,27 @@ Creatishop::Application.routes.draw do
   get "checkout/cart"
   get "shopping/product_display"
   get "shopping/shop"
+
+  get 'rails-admin', to: 'admin/dashboard#show'
+  get "admin/dashboard/index"
+
+
+   get "admin/managers/edit"
+   get "admin/managers/new"
+   post "admin/managers/update"
+
+   get "admin/sessions/login"
+   get "admin/sessions/logout"
+   post "admin/sessions/login_attempt"
+
+   get "admin/products/index"
+   get "admin/products/new"
+   get "admin/products/edit"
+   get "admin/products/show"
+   get "admin/products/delete"
+   post "admin/products/create"
+   post "admin/products/update"
+   post "admin/products/multiple_remove"
   resources :charges, :only => :create
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -59,4 +80,11 @@ Creatishop::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+   scope module: 'admin' do
+      resources :dashboard, :managers, :sessions, :products
+    end
+   namespace :admin do 
+      get '', to: 'dashboard#index', as: '/'       
+      resources :dashboard
+   end 
 end
