@@ -11,6 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140811054645) do
+
+  create_table "admin_managers", force: true do |t|
+    t.string   "manager_email"
+    t.string   "manager_name"
+    t.string   "manager_password"
+    t.string   "manager_role"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_products", force: true do |t|
+    t.string   "name"
+    t.string   "p_image"
+    t.string   "catagory"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "price"
+    t.text     "description"
+    t.string   "availability"
+  end
 
 end

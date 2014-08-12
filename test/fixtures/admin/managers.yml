@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manager_email: MyString
+  manager_name: MyString
+  manager_password: MyString
+  manager_role: MyString
+  salt: MyString
+
+two:
+  manager_email: MyString
+  manager_name: MyString
+  manager_password: MyString
+  manager_role: MyString
+  salt: MyString
