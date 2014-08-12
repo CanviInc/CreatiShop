@@ -1,0 +1,85 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12"> 
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->     
+		<h3 class="page-title"> Dashboard  </h3>
+		<ul class="breadcrumb">
+		    <li>
+			<%= link_to admin_dashboard_index_path, :id => "sample_editable_1_new" do %>
+			    Home <i class="icon-home"></i>
+		    <% end %>
+
+		</li>
+		</ul>
+		 <!-- END PAGE TITLE & BREADCRUMB-->
+     </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+    <div class="span12">
+         <%= render 'layouts/admin/admin_alert' %>   
+    </div>
+</div>
+        <!-- END PAGE CONTENT--><div class="row-fluid">
+						<div data-desktop="span3" data-tablet="span6" class="span3 responsive">
+							<div class="dashboard-stat blue">
+								<div class="visual">
+									<i class="icon-comments"></i>
+								</div>
+								<div class="details">
+									<div class="number">
+										1349
+									</div>
+									<div class="desc">									
+										New Feedbacks
+									</div>
+								</div>
+								<a href="#" class="more">
+								View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>						
+							</div>
+						</div>
+						<div data-desktop="span3" data-tablet="span6" class="span3 responsive">
+							<div class="dashboard-stat green">
+								<div class="visual">
+									<i class="icon-shopping-cart"></i>
+								</div>
+								<div class="details">
+									<div class="number">549</div>
+									<div class="desc">New Orders</div>
+								</div>
+								<a href="#" class="more">
+								View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>						
+							</div>
+						</div>
+						<div data-desktop="span3" data-tablet="span6  fix-offset" class="span3 responsive">
+							<div class="dashboard-stat purple">
+								<div class="visual">
+									<i class="icon-globe"></i>
+								</div>
+								<div class="details">
+									<div class="number">+89%</div>
+									<div class="desc">Brand Popularity</div>
+								</div>
+								<a href="#" class="more">
+								View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>						
+							</div>
+						</div>
+						<div data-desktop="span3" data-tablet="span6" class="span3 responsive">
+							<div class="dashboard-stat yellow">
+								<div class="visual">
+									<i class="icon-bar-chart"></i>
+								</div>
+								<div class="details">
+									<div class="number">12,5M$</div>
+									<div class="desc">Total Profit</div>
+								</div>
+								<a href="#" class="more">
+								View more <i class="m-icon-swapright m-icon-white"></i>
+								</a>						
+							</div>
+						</div>
+					</div>

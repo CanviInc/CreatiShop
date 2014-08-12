@@ -1,0 +1,41 @@
+  <!-- BEGIN LOGIN -->
+  <div class="content">
+    <!-- BEGIN LOGIN FORM -->
+   <!-- <form class="form-vertical login-form" action="index.html">-->
+    <%= form_for(:manager, :url => {:controller => 'sessions', :action => 'login_attempt'}, :html=> { class: 'form-vertical login-form' }) do |f| %>
+      <h3 class="form-title">Login to your account</h3>
+      <div class="alert alert-error hide">
+        <button class="close" data-dismiss="alert"></button>
+        <span>Enter any username and passowrd.</span>
+      </div>
+      <div class="control-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">Username</label>
+        <div class="controls">
+          <div class="input-icon left">
+            <i class="icon-user"></i>
+             <%= f.text_field :manager_name, :class => 'input-icon left' %> 
+            
+          </div>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label visible-ie8 visible-ie9">Password</label>
+        <div class="controls">
+          <div class="input-icon left">
+            <i class="icon-lock"></i>
+            <%= f.password_field :manager_password , :class => 'input-icon left' %>            
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+      <%= f.submit :Login, :class=> 'btn green pull-right'  %>       
+                    
+      </div> 
+          
+   <% end %>
+    <!-- END LOGIN FORM -->        
+    <!-- BEGIN FORGOT PASSWORD FORM -->
+    
+    <!-- END REGISTRATION FORM -->
+  </div>

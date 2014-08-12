@@ -1,0 +1,14 @@
+<% if flowerad.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(flowerad.errors.count, "error") %> 
+        prohibited this <%= flowerad.class.to_s.underscore.humanize.downcase %> 
+        from being saved:</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% flowerad.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+

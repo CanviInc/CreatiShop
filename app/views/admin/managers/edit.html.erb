@@ -1,0 +1,84 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12"> 
+		<!-- BEGIN PAGE TITLE & BREADCRUMB-->     
+		<h3 class="page-title"> Profile  </h3>
+		<ul class="breadcrumb">
+		<li>
+			<%= link_to admin_dashboard_index_path, :id => "sample_editable_1_new" do %>
+			    Home <i class="icon-home"></i>
+		    <% end %>
+
+		</li>
+		       
+		</ul>
+		 <!-- END PAGE TITLE & BREADCRUMB-->
+     </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row-fluid">
+    <div class="span12">
+         <!-- BEGIN SAMPLE FORM PORTLET-->   
+                  <div class="portlet box blue">
+                     <div class="portlet-title">
+                        <h4><i class="icon-reorder"></i>Edit Profile</h4>
+                        <div class="tools">
+                           <a href="javascript:;" class="collapse"></a>
+                           <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                           <a href="javascript:;" class="reload"></a>
+                           <a href="javascript:;" class="remove"></a>
+                        </div>
+                     </div>
+                     <div class="portlet-body form">
+                        <%= render 'layouts/admin/admin_alert' %>                        
+
+
+<!-- BEGIN FORM-->
+<%= form_for(:manager, :url => {:controller => 'managers', :action => 'update' }, :html=> { class: 'form-horizontal' }) do |f| %>
+                         
+
+                
+            
+                           <div class="control-group">
+                              <label class="control-label"> Name <font color="red">*</font></label>
+                              <div class="controls">                                 
+                                  <%= f.text_field :manager_name, :class => 'medium span6 m-wrap' %>
+                                 <span class="help-inline"></span>
+                              </div>
+                           </div>
+
+                           <div class="control-group">
+                              <label class="control-label">Email <font color="red">*</font></label>
+                              <div class="controls">
+                                 <%= f.text_field :manager_email, :class => 'medium span6 m-wrap' %>
+                                 <span class="help-inline"></span>
+                              </div>
+                           </div>
+                           
+                           <div class="control-group">
+                              <label class="control-label">Password <font color="red">*</font></label>
+                              <div class="controls">
+                                 <%= f.password_field :manager_password, :class => 'medium span6 m-wrap' %>
+                                 <span class="help-inline"></span>
+                              </div>
+                           </div>
+                             
+                           
+                           <div class="form-actions">
+                              <%= f.submit :Save, :class=> 'btn blue'  %>                                
+                            
+									 
+							          
+                           </div>
+                        <% end %>
+                        <!-- END FORM--> 
+                     
+                      
+                                     
+                     </div>
+                  </div>
+                  <!-- END SAMPLE FORM PORTLET-->   
+    </div>
+</div>
+        <!-- END PAGE CONTENT-->
