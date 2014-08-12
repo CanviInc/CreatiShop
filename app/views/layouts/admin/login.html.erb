@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <meta charset="utf-8" />
+  <title>Admin Login</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   <%= render 'layouts/admin/admin_stylesheets' %>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login">
+  <!-- BEGIN LOGO -->
+  <div class="logo">
+    <img src="assets/img/logo-big.png" alt="" /> 
+  </div>
+  <!-- END LOGO -->
+ <%= yield %>
+  <!-- END LOGIN -->
+  <!-- BEGIN COPYRIGHT -->
+  <div class="copyright">
+    <!-- BEGIN FOOTER -->
+   <%= render 'layouts/admin/admin_footer' %>
+  <!-- END FOOTER -->
+  </div>
+  <!-- END COPYRIGHT -->
+  <!-- BEGIN JAVASCRIPTS -->
+
+  <%= javascript_include_tag "admin/js/jquery-1.8.3.min" %>
+  <%= javascript_include_tag "admin/bootstrap/js/bootstrap.min" %>
+  <%= javascript_include_tag "admin/uniform/jquery.uniform.min" %>
+  <%= javascript_include_tag "admin/js/jquery.blockui" %>
+  <%= javascript_include_tag "admin/jquery-validation/dist/jquery.validate.min" %>
+  <%= javascript_include_tag "admin/js/jquery-1.8.3.min" %>
+  <%= javascript_include_tag "admin/js/app" %>
+  <script>
+    jQuery(document).ready(function() {     
+      App.initLogin();
+    });
+  </script>
+  <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

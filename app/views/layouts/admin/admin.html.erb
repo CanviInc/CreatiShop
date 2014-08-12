@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+  <meta charset="utf-8" />
+  <title>CreatiShop | Admin</title>
+  <%= csrf_meta_tag %>
+
+  <%= render 'layouts/admin/admin_stylesheets' %>
+ 
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+   <%= render 'layouts/admin/admin_top' %>
+  <!-- BEGIN CONTAINER -->  
+  <div class="page-container row-fluid">
+    <%= render 'layouts/admin/admin_menu' %>
+    
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+    
+      <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+      <div id="portlet-config" class="modal hide">
+        <div class="modal-header">
+          <button data-dismiss="modal" class="close" type="button"></button>
+          <h3>portlet Settings</h3>
+        </div>
+        <div class="modal-body">
+          <p>Here will be a configuration form</p>
+        </div>
+      </div>
+      <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+      <!-- BEGIN PAGE CONTAINER-->
+      <div class="container-fluid">                   
+          <%= yield %>        
+      </div>
+      <!-- END PAGE CONTAINER-->  
+    </div>
+    <!-- END PAGE -->   
+  </div>
+  <!-- END CONTAINER -->
+  <!-- BEGIN FOOTER -->
+   <%= render 'layouts/admin/admin_footer' %>
+  <!-- END FOOTER -->
+  <!-- BEGIN JAVASCRIPTS -->
+  <!-- Load javascripts at bottom, this will reduce page load time -->
+<%= javascript_include_tag "admin/js/jquery-1.8.3.min" %>
+<%= javascript_include_tag "admin/breakpoints/breakpoints" %>
+<%= javascript_include_tag "admin/jquery-slimscroll/jquery-ui-1.9.2.custom.min" %>
+<%= javascript_include_tag "admin/bootstrap/js/bootstrap.min" %>
+<%= javascript_include_tag "admin/js/jquery.blockui" %>
+<%= javascript_include_tag "admin/js/jquery.cookie" %>
+<%= javascript_include_tag "admin/fullcalendar/fullcalendar/fullcalendar" %>
+<%= javascript_include_tag "admin/uniform/jquery.uniform.min" %>
+<%= javascript_include_tag "admin/chosen-bootstrap/chosen/chosen.jquery.min" %>
+<%= javascript_include_tag "admin/data-tables/jquery.dataTables" %>
+<%= javascript_include_tag "admin/data-tables/DT_bootstrap" %>
+<%= javascript_include_tag "admin/ckeditor/ckeditor" %>
+
+
+
+
+  
+  <!-- ie8 fixes -->
+  <!--[if lt IE 9]>
+  <script src="assets/js/excanvas.js"></script>
+  <script src="assets/js/respond.js"></script>
+  <![endif]-->
+  <%= javascript_include_tag "admin/js/app" %> 
+  <script>
+    jQuery(document).ready(function() {     
+      // initiate layout and plugins
+      App.setPage('table_managed');
+      App.init();
+    });
+  </script>
+  <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

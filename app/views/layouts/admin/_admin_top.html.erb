@@ -1,0 +1,47 @@
+<!-- BEGIN HEADER -->
+  <div class="header navbar navbar-inverse navbar-fixed-top">
+    <!-- BEGIN TOP NAVIGATION BAR -->
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <!-- BEGIN LOGO -->
+        <a class="brand" href="index.html">
+        <img src="assets/img/logo.png" alt="logo" />
+        </a>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+        <img src="assets/img/menu-toggler.png" alt="" />
+        </a>          
+        <!-- END RESPONSIVE MENU TOGGLER -->        
+        <!-- BEGIN TOP NAVIGATION MENU -->          
+        <ul class="nav pull-right">
+         <li class="dropdown user open">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img alt="" src="assets/img/avatar1_small.jpg">
+            <span class="username">Bob Nilson</span>
+            <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to admin_managers_edit_path do %>
+                   <i class="icon-user"></i>  My Profile 
+              <% end %>
+              </li>
+              
+              
+              <li>
+                <%= link_to admin_sessions_logout_path do %>
+                   <i class="icon-key"></i>  Log Out 
+              <% end %>
+              </li>
+
+            </ul>
+          </li>
+         
+        </ul>
+        <!-- END TOP NAVIGATION MENU -->  
+      </div>
+    </div>
+    <!-- END TOP NAVIGATION BAR -->
+  </div>
+  <!-- END HEADER -->
