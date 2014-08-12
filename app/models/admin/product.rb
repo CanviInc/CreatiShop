@@ -1,5 +1,5 @@
 class Admin::Product < ActiveRecord::Base
-
+   self.table_name = "admin_products"
    validates :catagory, :presence => true , :length => { :maximum => 50 } 
    validates :name, :presence => true , :length => { :maximum => 50 }
    validates :description, :presence => true
