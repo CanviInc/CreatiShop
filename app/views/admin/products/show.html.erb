@@ -1,4 +1,81 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="row-fluid">
+    <div class="span12"> 
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->     
+        <h3 class="page-title"> Products  </h3>
+        <ul class="breadcrumb">
+           <li>
+      <%= link_to admin_dashboard_index_path, :id => "sample_editable_1_new" do %>
+          Home <i class="icon-home"></i>
+        <% end %>
 
-<h2>Flowerads Show</h2>
+    </li>
+        </ul>
+         <!-- END PAGE TITLE & BREADCRUMB-->
+     </div>
+</div>
+<!-- END PAGE HEADER-->
+<div class="row-fluid">
+        <div class="span8">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <h4><i class="icon-cogs"></i>Products View</h4>
+                    <div class="actions">
+                       
+                    </div>
 
+                </div>
+                <div class="portlet-body">
+                   
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            
+                                                     
+                          
+                            <tr>
+                                <td>Name</td>
+                                <td><%= @product.name %></td>
 
+                            </tr>
+                             <tr>
+                                <td>Image</td>
+                                <td><%= image_tag("uploads/products/" + @product.p_image, height: '100', width: '100') %></td>
+
+                            </tr>
+                             <tr>
+                                <td>Artist</td>
+                                <td><%= @product.artist %></td>
+
+                            </tr>
+                             <tr>
+                                <td>Price</td>
+                                <td><%= @product.price %></td>
+
+                            </tr>
+                             <tr>
+                                <td>Height</td>
+                                <td><%= @product.height %></td>
+
+                            </tr>
+                             <tr>
+                                <td>Weight</td>
+                                <td><%= @product.weight %></td>
+
+                            </tr>
+                             <tr>
+                                <td>Stem</td>
+                                <td><%= @product.stem %></td>
+
+                            </tr>
+                             <tr>
+                                <td>Description</td>
+                                <td><%=raw @product.description %></td>
+
+                            </tr>                                                      
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -8,7 +8,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def show
-		
+		@product = Admin::Product.find_by_id(params[:id])	
 	end
 
 	def new
@@ -35,10 +35,12 @@ class Admin::ProductsController < ApplicationController
 		end
 	    #### IMAGE UPLOAD BREAK ONE   ############	    
         @product.name = params[:product][:name]
-        @product.catagory = params[:product][:catagory]
+        @product.height = params[:product][:height]
         @product.description = params[:product][:description]
         @product.price = params[:product][:price]
-        @product.availability = params[:product][:availability]
+        @product.weight = params[:product][:weight]
+        @product.stem = params[:product][:stem]
+        @product.artist = params[:product][:artist]
         
 
 	    if @product.save
@@ -80,10 +82,12 @@ class Admin::ProductsController < ApplicationController
 	    #### IMAGE UPLOAD BREAK ONE   ############
 
 		@product.name = params[:product][:name]
-        @product.catagory = params[:product][:catagory]
+        @product.catagory = params[:product][:height]
         @product.description = params[:product][:description]
         @product.price = params[:product][:price]
-        @product.availability = params[:product][:availability]
+        @product.weight = params[:product][:weight]
+        @product.stem = params[:product][:stem]
+        @product.artist = params[:product][:artist]
         #@obj = Admin::Product.update(@Product.id, :name => params[:Product][:name], :catagory => params[:Product][:catagory], :flower => @flower)
         if @product.save
         	if upload

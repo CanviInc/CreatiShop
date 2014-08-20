@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811054645) do
+ActiveRecord::Schema.define(version: 20140820050530) do
 
   create_table "admin_managers", force: true do |t|
     t.string   "manager_email"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20140811054645) do
     t.string   "price"
     t.text     "description"
     t.string   "availability"
+    t.float    "height"
+    t.float    "weight"
+    t.string   "stem"
+    t.string   "artist"
   end
 
 end

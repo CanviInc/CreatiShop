@@ -25,9 +25,9 @@
                            </div>
 
                            <div class="control-group">
-                              <label class="control-label">Catagory <font color="red">*</font></label>
+                              <label class="control-label">Artist <font color="red">*</font></label>
                               <div class="controls">                                
-                <%= f.select :catagory, options_for_select([["Select One", ""], ["Watches", "watches"], ["Shoes", "shoes"]]), :class => 'medium span6 m-wrap' %>
+                              <%= f.text_field :artist, :class => 'medium span6 m-wrap' %>
                                  <span class="help-inline"></span>
                               </div>
                            </div>
@@ -39,10 +39,23 @@
                               </div>
                            </div>
                            <div class="control-group">
-                              <label class="control-label">Availability <font color="red">*</font></label>                              
-                              <div class="controls">
-                            
-  <%= f.select :availability, options_for_select([["Select One", ""], ["In Stock", "in stock"], ["Out Stock", "out stock"]]), :selected =>@product.availability, :class => 'medium span6 m-wrap' %>
+                              <label class="control-label">Height <font color="red">*</font></label>                              
+                              <div class="controls">                            
+                                   <%= f.text_field :height, :class => 'medium span6 m-wrap' %>
+                                 <span class="help-inline"></span>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Weight <font color="red">*</font></label>                              
+                              <div class="controls">                            
+                                   <%= f.text_field :weight, :class => 'medium span6 m-wrap' %>
+                                 <span class="help-inline"></span>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Stem <font color="red">*</font></label>                              
+                              <div class="controls">                            
+                                   <%= f.text_field :stem, :class => 'medium span6 m-wrap' %>
                                  <span class="help-inline"></span>
                               </div>
                            </div>

@@ -2,43 +2,95 @@
   <%=image_tag "Screen.png", :width => "120px" %>
 </div>
 <main>
-  <section style="background:#efefef; height:300px; padding:15px 0 0 0; margin-top:50px;" align="center">
-    <div class="product md-trigger " data-modal="modal-j1">
-    <img src="/assets/buck_2.jpg" >
-    </div>
+  <section style="background:#efefef; height:300px; padding:15px 0 0 0; margin-top:50px;" align="center">   
+    <% 
+    i = 1
+    @products.each do |product| %>
+        <div class="product md-trigger " data-modal="modal-j<%= i %>">
+        <%= image_tag("uploads/products/" + product.p_image, height: '100', width: '100') %>        
+        </div>
+
+                  <!-- Modal product click -->
+          <div class="md-modal md-effect-jt" id="modal-j<%= i %>">
+            <div class="md-content modal-j-bg">
+              <div class="div-close">
+                <span class="md-close on-close">
+                  <img src="/assets/close.png" />
+                </span>
+              </div>  
+              <div class="prod-desc">
+                <div class="prod-title"><p> Title: <%= product.name %></div>
+                <div class="prod-details">
+                  <div class="iblk prod-artist-dimen">
+                    <div class="prod-artist"><p>Artist: <%= product.artist %></p></div>
+                    <div class="prod-dim">
+                      <p>Height: <%= product.height %></p><p>Weight: <%= product.weight %></p><p>Stem: <%= product.stem %></p>
+                    </div>
+                  </div>
+                  <div class="prod-img iblk"><%= image_tag("uploads/products/" + product.p_image, height: '300', width: '300') %></div>
+                  <div class="prod-price-desc iblk">
+                    <div class="prod-price">Price: <%= product.price %></div>
+                    <div class="prod-des"><%=raw  product.description %></div>
+                  </div>
+                </div>
+                <div class="clearx getbtn">
+                <!-- <section> -->
+                  <div class="wrapper-demo">
+                    <div class="dd wrapper-dropdown-4">GET
+                      <ul class="dropdown">
+                        <li>
+                          <form action="<%=root_path%>" method="get">
+                              <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+                       
+                              <a 
+                                  href="#"                                  
+                                  class = "pay" 
+                                  value="Pay with Card"
+                                  data-key= <%=PUBLISHABLE_KEY%>
+                                  data-amount="500"
+                                  data-currency="usd"
+                                  data-name="Example Company Inc"
+                                  data-description="Stripe payment for $5"
+                              >Now</a>
+                       
+                              <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+                              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+                              <script>
+                              $(document).ready(function() {
+                                  $('.pay').on('click', function(event) {
+                                      event.preventDefault();
+                       
+                                      var $button = $(this),
+                                          $form = $button.parents('form');
+                       
+                                      var opts = $.extend({}, $button.data(), {
+                                          token: function(result) {
+                                              $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                                          }
+                                      });
+                       
+                                      StripeCheckout.open(opts);
+                                  });
+                              });
+                              </script>
+                          </form>
+                        </li>
+                        <li><a href="#" class="md-trigger later" data-modal="modal-jsk" >Later</a></li>
+                      </ul>
+                    </div>
+                  ​</div>
+                <!-- </section> -->
+              </div>
+            </div>
+          </div>
+          </div>
+    <% 
+    i += 1
+    end %>
     
-    <div class="product">
-    <img src="/assets/tyme_8.jpg" >
-    </div>
     
-    <div class="product">
-    <img src="/assets/robo1_1 copy.jpg" >
-    </div>
-    
-    <div class="product">
-    <img src="/assets/tyme_1 copy.jpg" >
-    </div>
-    
-    
-    <div class="product">
-    <img src="/assets/buck_1.jpg" >
-    </div>
-    
-    <div class="product">
-    <img src="/assets/darby1_1.jpg" >
-    </div>
-    
-    <div class="product">
-    <img src="/assets/darby2_2.jpg" >
-    </div>
-    
-    <div class="product">
-    <img src="/assets/natey_1.jpg" >
-    </div>
-    
-    <div class="product">
-    <img src="/assets/scoz1.jpg" >
-    </div>
+   
+  
     
   </section>
   <div class="cart" style="margin-top:30px; ">
@@ -51,81 +103,8 @@
 
 
 
-<!-- Modal product click -->
-<div class="md-modal md-effect-jt" id="modal-j1">
-  <div class="md-content modal-j-bg">
-    <div class="div-close">
-      <span class="md-close on-close">
-        <img src="/assets/close.png" />
-      </span>
-    </div>  
-    <div class="prod-desc">
-      <div class="prod-title">Title</div>
-      <div class="prod-details">
-        <div class="iblk prod-artist-dimen">
-          <div class="prod-artist">Artist</div>
-          <div class="prod-dim">
-            <p>1).Height</p><p>2).Weight</p><p>3).Stem</p>
-          </div>
-        </div>
-        <div class="prod-img iblk"><img src="/assets/modal2.png" /></div>
-        <div class="prod-price-desc iblk">
-          <div class="prod-price">$Price</div>
-          <div class="prod-des">Description</div>
-        </div>
-      </div>
-      <div class="clearx getbtn">
-      <!-- <section> -->
-        <div class="wrapper-demo">
-          <div id="dd" class="wrapper-dropdown-4">GET
-            <ul class="dropdown">
-              <li>
-                <form action="<%=root_path%>" method="get">
-                    <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
-             
-                    <a 
-                        href="#"
-                        id ="pay" 
-                        value="Pay with Card"
-                        data-key= <%=PUBLISHABLE_KEY%>
-                        data-amount="500"
-                        data-currency="usd"
-                        data-name="Example Company Inc"
-                        data-description="Stripe payment for $5"
-                    >Now</a>
-             
-                    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-                    <script>
-                    $(document).ready(function() {
-                        $('#pay').on('click', function(event) {
-                            event.preventDefault();
-             
-                            var $button = $(this),
-                                $form = $button.parents('form');
-             
-                            var opts = $.extend({}, $button.data(), {
-                                token: function(result) {
-                                    $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
-                                }
-                            });
-             
-                            StripeCheckout.open(opts);
-                        });
-                    });
-                    </script>
-                </form>
-              </li>
-              <li><a href="#" class="md-trigger later" data-modal="modal-j2" >Later</a></li>
-            </ul>
-          </div>
-        ​</div>
-      <!-- </section> -->
-    </div>
-  </div>
-</div>
-</div>
-<div class="md-modal md-effect-jt md-effect-jt2" id="modal-j2">
+
+<div class="md-modal md-effect-jt md-effect-jt2" id="modal-jsk">
   <div class="md-content modal-j-bg">
       <div class="div-close"><span class="md-close"><img src="/assets/close.png" /></span></div>
     
@@ -195,7 +174,7 @@
 
   $(function() {
 
-    var dd = new DropDown( $('#dd') );
+    var dd = new DropDown( $('.dd') );
 
     $(document).click(function() {
       // all dropdowns
