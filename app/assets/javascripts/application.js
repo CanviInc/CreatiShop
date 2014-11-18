@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ../../../vendor/assets/javascripts/plugins/jquery-1.10.2.min
+//= require ../../../vendor/assets/javascripts/plugins/jquery-migrate-1.2.1.min
+//= require ../../../vendor/assets/javascripts/plugins/jquery-ui/jquery-ui-1.10.3.custom.min
+//= require ../../../vendor/assets/javascripts/plugins/bootstrap/js/bootstrap.min
+//= require ../../../vendor/assets/javascripts/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min
+//= require ../../../vendor/assets/javascripts/plugins/jquery-slimscroll/jquery.slimscroll.min
+//= require ../../../vendor/assets/javascripts/plugins/jquery.blockui.min
+//= require ../../../vendor/assets/javascripts/plugins/jquery.cokie.min
+//= require ../../../vendor/assets/javascripts/plugins/uniform/jquery.uniform.min
+//= require ../../../vendor/assets/javascripts/core/app
 //= require turbolinks
 

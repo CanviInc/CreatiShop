@@ -11,13 +11,3 @@
  *= require_self
  *= require_tree .
  */
-body {
-	background:url('unknown.jpg'),#E2E1E1;
-	background-position:top ; 
-	background-repeat:no-repeat;
-}
-.left_image{
-	float: left;
-	margin-left: 90px; 
-	margin-top: 150px;
-}

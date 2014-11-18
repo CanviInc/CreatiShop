@@ -9,15 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require ../../../vendor/assets/stylesheets/plugins/font-awesome/css/font-awesome.min
+ *= require ../../../vendor/assets/stylesheets/plugins/bootstrap/css/bootstrap.min
+ *= require ../../../vendor/assets/stylesheets/plugins/uniform/css/uniform.default
+ *= require style-metronic
+ *= require style
+ *= require style-responsive
+ *= require plugins
+ *= require ../../../vendor/assets/stylesheets/themes/default
+ *= require custom
  */
-body {
-	background:url('unknown.jpg'),#E2E1E1;
-	background-position:top ; 
-	background-repeat:no-repeat;
-}
-.left_image{
-	float: left;
-	margin-left: 90px; 
-	margin-top: 150px;
-}
