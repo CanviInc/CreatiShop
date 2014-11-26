@@ -1,7 +1,9 @@
- <h1>Profile</h1>
+<%= render 'layouts/admin/admin_alert' %>
+
+<h1>New User</h1>
 <%= form_for(:manager, :url => {:controller => 'managers', :action => 'create'}) do |f| %>
 <p> Name:</br> <%= f.text_field :manager_name %> </p>
 <p> Email:</br> <%= f.text_field :manager_email %> </p>
 <p> Password:</br> <%= f.password_field :manager_password %></p>
-<%= f.submit :Update %>
+<%= f.submit "Create" %>
 <% end %>

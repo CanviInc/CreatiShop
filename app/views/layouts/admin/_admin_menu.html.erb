@@ -1,13 +1,12 @@
 <!-- BEGIN SIDEBAR -->
    <%
-   @pro = ""
-   @dash = ""
-   if params[:controller].split("/").last == "products"
+    if params[:controller].split("/").last == "products"
       pro = "active"
-    else 
+    elsif params[:controller].split("/").last == "dashboard" 
       dash = "active"
+    elsif params[:controller] == "admin/managers" && params[:action] == "new"
+      new_user = "active"
     end
-
    %>
     <div class="page-sidebar nav-collapse collapse">
       <!-- BEGIN SIDEBAR MENU -->         
@@ -31,8 +30,11 @@
         <li class="<%= dash %> ">
            <%= link_to 'Dashboard', :controller => :dashboard, :action => :show %>          
         </li>        
-          <li class="<%= pro %>">
+        <li class="<%= pro %>">
          <%= link_to 'Products', :controller => :products, :action => :index %>   
+        </li> 
+        <li class="<%= new_user %>">
+         <%= link_to 'Add User', admin_managers_new_path %>   
         </li> 
           
          
