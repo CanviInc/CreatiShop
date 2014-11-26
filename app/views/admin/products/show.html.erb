@@ -38,8 +38,16 @@
 
                             </tr>
                              <tr>
-                                <td>Image</td>
-                                <td><%= image_tag("uploads/products/" + @product.p_image, height: '100', width: '100') %></td>
+                                <td>Attachment</td>
+                                <td>
+                                    <% if File.extname(@product.p_image) != ".mp3" && File.extname(@product.p_image) != ".epub" %>
+                                    <%= image_tag("uploads/products/" + @product.p_image, height: '100', width: '100') %>
+                                    <% elsif File.extname(@product.p_image) == ".mp3" %>
+                                        <%= render 'product_attachment', product: @product, type: "music", height: "100", width: "100" %>
+                                    <% else %>
+                                        <%= render 'product_attachment', product: @product, type: "file", height: "100" , width: "50" %>
+                                    <% end %>
+                                </td>
 
                             </tr>
                              <tr>

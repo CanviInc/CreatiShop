@@ -72,7 +72,7 @@ function multiple(){
 										<tr>
 											<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" id="selectall" onclick="select_all();"/></th>
 											<th>Product Name</th>
-											<th>Product Image</th>
+											<th>Product Attachment</th>
 											<th>Artist</th>
 											<th>Price</th>
 																				
@@ -87,7 +87,15 @@ function multiple(){
 											</td>
                                                
 											<td><%= product.name %></td>
-											<td><%= image_tag("uploads/products/" + product.p_image, height: '100', width: '100') %></td>	
+											<td>
+												<% if File.extname(product.p_image) != ".mp3" && File.extname(product.p_image) != ".epub" %>
+												<%= image_tag("uploads/products/" + product.p_image, height: '100', width: '100') %>
+												<% elsif File.extname(product.p_image) == ".mp3" %>
+													<%= render 'product_attachment', product: product, type: "music", height: "100", width: "100" %>
+												<% else %>
+													<%= render 'product_attachment', product: product, type: "file", height: "100" , width: "50" %>
+												<% end %>
+											</td>	
 											<td><%= product.artist %></td>
 											<td><%= product.price %></td>
 																				

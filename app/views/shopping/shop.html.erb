@@ -7,7 +7,13 @@
     i = 1
     @products.each do |product| %>
         <div class="product md-trigger " data-modal="modal-j<%= i %>">
-        <%= image_tag("uploads/products/" + product.p_image, height: '100', width: '100') %>        
+          <% if File.extname(product.p_image) != ".mp3" && File.extname(product.p_image) != ".epub" %>
+            <%= image_tag("uploads/products/" + product.p_image, height: '100', width: '100') %>
+          <% elsif File.extname(product.p_image) == ".mp3" %>
+            <%= image_tag("music1.svg", height: '100', width: '100', title: product.p_image) %>
+          <% else %>
+            <%= image_tag("file.png", height: '100', width: '100', title: product.p_image) %>
+          <% end %>        
         </div>
 
                   <!-- Modal product click -->
@@ -27,7 +33,15 @@
                       <p>Height: <%= product.height %></p><p>Weight: <%= product.weight %></p><p>Stem: <%= product.stem %></p>
                     </div>
                   </div>
-                  <div class="prod-img iblk"><%= image_tag("uploads/products/" + product.p_image, height: '300', width: '300') %></div>
+                  <div class="prod-img iblk">
+                    <% if File.extname(product.p_image) != ".mp3" && File.extname(product.p_image) != ".epub" %>
+                    <%= image_tag("uploads/products/" + product.p_image, height: '300', width: '300') %>
+                    <% elsif File.extname(product.p_image) == ".mp3" %>
+                      <%= render 'admin/products/product_attachment', product: product, type: "music", height: "250", width: "300" %>
+                    <% else %>
+                      <%= render 'admin/products/product_attachment', product: product, type: "file", height: "250" , width: "300" %>
+                    <% end %>
+                  </div>
                   <div class="prod-price-desc iblk">
                     <div class="prod-price">Price: <%= product.price %></div>
                     <div class="prod-des"><%=raw  product.description %></div>

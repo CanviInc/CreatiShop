@@ -12,7 +12,7 @@ class Admin::Product < ActiveRecord::Base
    validates :stem, :presence => true , :length => { :maximum => 50 }
    validates :artist, :presence => true , :length => { :maximum => 50 }
    validates :p_image, :presence => true  
-   validates :p_image, allow_blank: false, format: { with: %r{\.gif|jpg|png}i, message: 'must be a gif, jpg, or png image.'}
+   validates :p_image, allow_blank: false, format: { with: %r{\.gif|jpg|png|mp3|epub}i, message: 'must be a gif, jpg, png, mp3 or epub format.'}
 
 
 end

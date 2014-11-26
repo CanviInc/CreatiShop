@@ -144,6 +144,12 @@ class Admin::ProductsController < ApplicationController
 	   end
 	end
 
+	def download_file
+		product = Admin::Product.find(params[:id])
+		extension = File.extname(product.p_image).gsub(".", "")
+    send_file "#{Rails.root}/app/assets/images/uploads/products/#{product.p_image}", :type=>"application/#{extension}", :x_sendfile=>true
+	end
+
 	private
 
 	  def product_params
