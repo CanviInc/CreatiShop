@@ -1,3 +1,5 @@
+//= require social-share-button
+
 var App = function () {
 
     var isIE8 = false; // IE8 mode

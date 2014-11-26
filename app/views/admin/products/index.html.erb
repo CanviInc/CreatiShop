@@ -92,7 +92,7 @@ function multiple(){
 											<td><%= product.price %></td>
 																				
 											<td >
-							               
+							 <%= social_share_button_tag(product.name, :popup => "true", :url => admin_products_show_url(id: product.id) ) %>               
 							 <%= link_to admin_products_show_path(id: product.id), :id => "sample_editable_1_new", :class => "btn mini blue" do %>
 									   		View Product  <i class="icon-edit"></i>
 							  <% end %>
