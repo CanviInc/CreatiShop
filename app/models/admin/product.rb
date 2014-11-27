@@ -18,10 +18,11 @@ class Admin::Product < ActiveRecord::Base
       customer = Stripe::Customer.create(
           :card  => stripe_token
          )
+      binding.pry
          charge = Stripe::Charge.create(
           :customer    => customer.id,
-          :amount      => amount*100,
-          :description => 'Rails Stripe customer',
+          :amount      => amount,
+          :description => 'Stripe payment for $3',
           :currency    => 'usd'
         )
       rescue Stripe::CardError => e
