@@ -28,18 +28,18 @@
   </section>
   <section class="check">
   <a href="javascript:void(0);">
-  <form action="<%=root_path%>" method="get">
+  <form action="<%=charges_path%>" method="post">
           <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
-   
+    <input type="hidden" name="charges" value="300">
           <a 
               href="#"
               id ="pay" 
               value="Pay with Card"
               data-key= <%=PUBLISHABLE_KEY%>
-              data-amount="500"
+              data-amount="300"
               data-currency="usd"
               data-name="Example Company Inc"
-              data-description="Stripe payment for $5"
+              data-description="Stripe payment for $3"
           >Checkout</a>
    
           <script src="https://checkout.stripe.com/v2/checkout.js"></script>
@@ -66,7 +66,9 @@
 
   </section>
   <section class="continue"><a href="/shopping/shop">Continue</a></section>
-  <div class="cart"><a href="/checkout/cart">
-  			<%=image_tag "cart.png", :alt => "cart" %>
-  		</a> </div>
+  <!-- <div class="cart"><a href="/checkout/cart">
+  			<%#=image_tag "cart.png", :alt => "cart" %>
+  		</a> </div> -->
 </main>
+
+

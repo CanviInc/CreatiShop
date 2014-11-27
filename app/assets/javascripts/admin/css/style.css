@@ -4,6 +4,8 @@ Version: 1.1.2
 Author: KeenThemes
 Website: http://www.keenthemes.com/preview/?theme=metronic
 Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469
+*= require social-share-button
+
 */
 
 /*********************
@@ -4908,4 +4910,9 @@ Bootstrap Tree CSS changes(new in v1.1.2)
 .tree a.tree-toggle.closed, 
 .tree a.tree-toggle-icon-only.closed {
   background-position: 2px 3px;
+}
+
+.social-share-button{
+  float: left;
+  padding: 3px 5px;
 }

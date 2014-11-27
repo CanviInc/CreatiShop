@@ -6,20 +6,19 @@ class Admin::ManagersController < ApplicationController
 	end
 
 	def new
-		#@manager = Manager.new	
+		@manager = Admin::Manager.new	
 	end
 
 
 	def create
-		 #@manager = Admin::Manager.new(params[:manager])
-      #if @manager.save
-        
-       # flash[:success] = "Welcome to the Sample App!"
-       # render 'show'
-     # else
-      #  @title = "Sign up"
-      #  render 'new'
-      #end
+		 @manager = Admin::Manager.new(manager_params)
+	     if @manager.save   
+	       flash[:alert] = "User is successfully Created"
+	       redirect_to admin_dashboard_index_path
+	     else
+	       flash[:alert] = @manager.errors.full_messages.join("<br/>").gsub("Manager", "User")
+	       redirect_to :back
+	     end
 	end
 	def edit
 		@manager = Admin::Manager.find_by_id(1)

@@ -8,6 +8,7 @@ Creatishop::Application.routes.draw do
   get 'rails-admin', to: 'admin/dashboard#show'
   get "admin/dashboard/index"
 
+  get 'download_file/:id' => "admin/products#download_file", as: "download_file"
 
    get "admin/managers/edit"
    get "admin/managers/new"
